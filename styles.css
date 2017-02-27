@@ -1,6 +1,6 @@
 #pieChart {    
 	position:absolute;
-	top:10px;
+	top:200px;
 	left:10px;
 	width:400px;
 	height: 400px; 
@@ -10,7 +10,7 @@
 
 #lineChart {    
 	position:absolute;
-	top: 20px;
+	top: 200px;
 	left: 520px;
 	height: 500px;
 	bottom: 50px;
@@ -18,7 +18,7 @@
 
 #barChart {
 	position:absolute;
-	top: 400px;
+	top: 550px;
 	left: 520px;
 	height: 250px;
 }
