@@ -1,5 +1,5 @@
 var svg = d3.select("#lineChart").append("svg")
-	.attr("width", 600).attr("height", 500),
+	.attr("width", 600).attr("height", 300),
 	margin = {top: 20, right: 80, bottom: 30, left: 50},
     width = svg.attr("width") - margin.left - margin.right,
     height = svg.attr("height") - margin.top - margin.bottom,

@@ -119,8 +119,8 @@ function dsPieChart(){
 				/* update bar chart when user selects piece of the pie chart */
 				//updateBarChart(dataset[i].category);
 				switchActive(d.data.category);
-				//updateBarChart(d.data.category, color(i));
-				updateLineChart(d.data.category, color(i));
+				updateBarChart(d.data.category, color(i));
+				updateLineChart();
 			 
 	}
 }
