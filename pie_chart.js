@@ -90,18 +90,12 @@ function dsPieChart(){
 		
 	function mouseover() {
 	  d3.select(this).select("path").transition()
-	      .duration(750)
-	        		//.attr("stroke","red")
-	        		//.attr("stroke-width", 1.5)
 	        		.attr("d", arcFinal3)
 	        		;
 	}
 	
 	function mouseout(d) {
 		d3.select(this).select("path").transition()
-			.duration(750)
-			//.attr("stroke","blue")
-			//.attr("stroke-width", 1.5)
 			.attr("d", function(d){
 						if(isActive(d.data.category)){
 							return arcFinal3(d);
