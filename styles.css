@@ -33,7 +33,6 @@
 
 
 .axis--x path {
-  display: none;
   shape-rendering: crispEdges;
 }
 
