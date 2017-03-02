@@ -1,15 +1,15 @@
-var svg = d3.select("#lineChart").append("svg")
+var LineChartSVG = d3.select("#lineChart").append("svg")
 	.attr("width", 600).attr("height", 300),
 	margin = {top: 20, right: 80, bottom: 30, left: 50},
-    width = svg.attr("width") - margin.left - margin.right,
-    height = svg.attr("height") - margin.top - margin.bottom,
-    g = svg.append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+    LineChartwidth = LineChartSVG.attr("width") - margin.left - margin.right,
+    LineChartheight = LineChartSVG.attr("height") - margin.top - margin.bottom,
+    LineChart_g = LineChartSVG.append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
 	
 var parseTime = d3.timeParse("%Y%m");
 
-var xScale = d3.scaleTime().range([0, width]),
-    yScale = d3.scaleLinear().range([height, 0]),
+var xScale = d3.scaleTime().range([0, LineChartwidth]),
+    yScale = d3.scaleLinear().range([LineChartheight, 0]),
     zScale = d3.scaleOrdinal(d3.schemeCategory20);
 	
 var line = d3.line()
@@ -38,17 +38,17 @@ d3.csv("LineChartData.csv", type, function(error, data) {
 
   zScale.domain(cities.map(function(c) { return c.id; }));
 
-  g.append("g")
+  LineChart_g.append("g")
       .attr("class", "axis axis--x")
-      .attr("transform", "translate(0," + height + ")")
+      .attr("transform", "translate(0," + LineChartheight + ")")
       .call(d3.axisBottom(xScale).ticks(d3.timeMonth)
 			.tickFormat(d3.timeFormat("%B %y")));
 
-  g.append("g")
+  LineChart_g.append("g")
       .attr("class", "axis axis--y")
       .call(d3.axisLeft(yScale));
 
-  var city = g.selectAll(".city")
+  var city = LineChart_g.selectAll(".city")
     .data(cities)
     .enter().append("g")
      .attr("class", "city");
@@ -75,8 +75,8 @@ function type(d, _, columns) {
 }
 
 function updateLineChart(){
-	var svg = d3.select("#lineChart svg");
-	var g = svg.select("g");
+	var LineChartSVG = d3.select("#lineChart svg");
+	var LineChart_g = LineChartSVG.select("g");
 	
 	d3.csv("LineChartData.csv", type, function(error, data) {
 	  if (error) throw error;
@@ -101,7 +101,7 @@ function updateLineChart(){
 	  zScale.domain(cities.map(function(c) { return c.id; }));
 
 
-	  var city = g.selectAll(".city");
+	  var city = LineChart_g.selectAll(".city");
 		  
 	  
 	  city.selectAll("path")
